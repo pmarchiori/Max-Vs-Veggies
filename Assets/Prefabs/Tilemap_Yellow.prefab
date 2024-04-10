@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7458583625988402638}
   - component: {fileID: 4499557048356997528}
+  - component: {fileID: 3145010410353254139}
   m_Layer: 0
   m_Name: Tilemap_Yellow
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3145010410353254139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200651498651350970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b955ccc0a1b34f4bbea0d8c49d81c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

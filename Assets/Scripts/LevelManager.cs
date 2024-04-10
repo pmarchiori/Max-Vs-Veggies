@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] tilePrefabs; 
+    [SerializeField] private GameObject[] tilePrefabs;
 
     [SerializeField] private CameraMovement cameraMovement;
 
@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
                 maxTile = PlaceTile(newTiles[x].ToString(), x , y, worldStart); //places the tiles
             }
         }
-
+        //sets the camera limits to the max tile position
         cameraMovement.SetLimits(new Vector3(maxTile.x + TileSize, maxTile.y -TileSize));
     }
 
@@ -47,10 +47,10 @@ public class LevelManager : MonoBehaviour
         int tileIndex = int.Parse(tileType);
 
         //creates a new tile and makes a reference for that tile in the newTile variable
-        GameObject newTile = Instantiate(tilePrefabs[tileIndex]);
+        TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
 
         //uses newTile to change the position of the tile
-        newTile.transform.position = new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0);
+        newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0));
 
         return newTile.transform.position;
     }
