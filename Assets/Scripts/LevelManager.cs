@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -9,6 +10,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] tilePrefabs;
 
     [SerializeField] private CameraMovement cameraMovement;
+
+    private Point pointASpawn;
+    private Point pointBSpawn;
+
+    [SerializeField] private GameObject pointAPrefab;
+    [SerializeField] private GameObject pointBPrefab;
 
     public Dictionary<Point, TileScript> Tiles { get; set; }
 
@@ -48,6 +55,8 @@ public class LevelManager : MonoBehaviour
 
         //sets the camera limits to the max tile position
         cameraMovement.SetLimits(new Vector3(maxTile.x + TileSize, maxTile.y -TileSize));
+
+        SpawnPoints();
     }
 
     private void PlaceTile(string tileType, int x, int y, Vector3 worldStart)
@@ -71,5 +80,14 @@ public class LevelManager : MonoBehaviour
         string data = bindData.text.Replace(Environment.NewLine, string.Empty);
 
         return data.Split('-');
+    }
+
+    private void SpawnPoints()
+    {
+        pointASpawn = new Point(0,0);
+        Instantiate(pointAPrefab, Tiles[pointASpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
+
+        pointBSpawn = new Point(11,6);
+        Instantiate(pointBPrefab, Tiles[pointBSpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
     }
 }
