@@ -26,9 +26,13 @@ public class TileScript : MonoBehaviour
         
     }
 
-    public void Setup(Point gridPos, Vector3 worldPos)
+    //sets up the tile
+    public void Setup(Point gridPos, Vector3 worldPos, Transform parent)
     {
-        this.GridPosition = GridPosition;
-        transform.position = worldPos;
+        this.GridPosition = gridPos; //tiles grid position
+        transform.position = worldPos; //tiles world position
+        transform.SetParent(parent); //set the tiles parent in the unity editor
+        
+        LevelManager.Instance.Tiles.Add(gridPos, this);
     }
 }

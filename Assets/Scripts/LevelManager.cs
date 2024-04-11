@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
     //array of tile prefabs, used to create tiles in game
     [SerializeField] private GameObject[] tilePrefabs;
 
     [SerializeField] private CameraMovement cameraMovement;
+
+    [SerializeField] private Transform map;
 
     private Point pointASpawn;
     private Point pointBSpawn;
@@ -61,16 +63,14 @@ public class LevelManager : MonoBehaviour
 
     private void PlaceTile(string tileType, int x, int y, Vector3 worldStart)
     {
-        //parses tileType into an int to use if as an indexer when creating a new tile
+        //parses tileType into an int to use it as an indexer when creating a new tile
         int tileIndex = int.Parse(tileType);
 
         //creates a new tile and makes a reference for that tile in the newTile variable
         TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
 
         //uses newTile to change the position of the tile
-        newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0));
-
-        Tiles.Add(new Point(x, y), newTile);
+        newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0), map);
     }
 
     private string[] ReadLevelText()
