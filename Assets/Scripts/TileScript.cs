@@ -20,7 +20,6 @@ public class TileScript : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -34,5 +33,18 @@ public class TileScript : MonoBehaviour
         transform.SetParent(parent); //set the tiles parent in the unity editor
         
         LevelManager.Instance.Tiles.Add(gridPos, this);
+    }
+
+    private void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            PlaceTower();
+        }
+    }
+
+    private void PlaceTower()
+    {
+        Instantiate(GameManager.Instance.TowerPrefab, transform.position, Quaternion.identity);
     }
 }
