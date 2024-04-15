@@ -1,19 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
-    public TowerBtn ClickedTowerBtn  { get; private set; }
+    public TowerBtn ClickedTowerBtn  { get; set; }
+ 
+    [SerializeField] private TextMeshProUGUI currencyText;
+
+    [SerializeField] private int currency;
+
+    public int Currency
+    {
+        get
+        {
+            return currency;
+        }
+
+        set
+        {
+            this.currency = value;
+            this.currencyText.text = value.ToString() + "$";
+        }
+    }
 
     void Start()
     {
-        
+        Currency = 5;
     }
 
     void Update()
     {
-        
+        HandleEsc();
     }
 
     public void PickTower(TowerBtn towerBtn)
@@ -23,7 +43,15 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void BuyTower()
+    {  
+        Hover.Instance.Deactivate();
+    }
+
+    private void HandleEsc()
     {
-        ClickedTowerBtn = null;
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Hover.Instance.Deactivate();
+        }
     }
 }
