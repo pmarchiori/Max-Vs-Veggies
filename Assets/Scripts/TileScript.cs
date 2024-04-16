@@ -9,8 +9,8 @@ public class TileScript : MonoBehaviour
 
     public bool IsEmpty { get; private set; }
 
-    private Color32 fullColor = new Color32(255, 188, 188, 255);
-    private Color32 emptyColor = new Color32(96, 255, 90, 255);
+    private Color32 fullColor = new Color32(255, 188, 188, 255); //color of the tile when unavailable for tower placement
+    private Color32 emptyColor = new Color32(96, 255, 90, 255); //color of the tile when available for tower placement
 
     private SpriteRenderer spriteRenderer;
 
@@ -58,7 +58,7 @@ public class TileScript : MonoBehaviour
             {
                 ColorTile(fullColor);
             }
-            else if(Input.GetMouseButtonDown(0))
+            else if(Input.GetMouseButtonDown(0)) //places a tower if the tile is available (empty)
             {
                 PlaceTower();
             }
@@ -73,19 +73,21 @@ public class TileScript : MonoBehaviour
     //places a tower on the tile
     private void PlaceTower()
     {
+        //creates the tower
         GameObject tower = (GameObject)Instantiate(GameManager.Instance.ClickedTowerBtn.TowerPrefab, transform.position, Quaternion.identity);
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 
-        tower.transform.SetParent(transform);
+        tower.transform.SetParent(transform); //sets the tower as transform child of the tile
 
         IsEmpty = false;
 
-        ColorTile(Color.white);
+        ColorTile(Color.white); //sets the color back to neutral (white)
 
         GameManager.Instance.BuyTower();
     }
 
-    private void ColorTile(Color newColor)
+    //sets the color on the tiles
+    private void ColorTile(Color newColor) 
     {
         spriteRenderer.color = newColor;
     }

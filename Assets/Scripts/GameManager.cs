@@ -28,7 +28,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        Currency = 5;
+        Currency = 10;
     }
 
     void Update()
@@ -36,22 +36,31 @@ public class GameManager : Singleton<GameManager>
         HandleEsc();
     }
 
-    public void PickTower(TowerBtn towerBtn)
+    public void PickTower(TowerBtn towerBtn) //pick the respective tower of the button pressed
     {
-        this.ClickedTowerBtn = towerBtn;
-        Hover.Instance.Activate(towerBtn.Sprite);
+        if(Currency >= towerBtn.Price)
+        {
+            this.ClickedTowerBtn = towerBtn; //stores the clicked button
+            Hover.Instance.Activate(towerBtn.Sprite); //activates the hover icon for the tower placement
+        }
+        
     }
 
     public void BuyTower()
     {  
-        Hover.Instance.Deactivate();
+        if(Currency >= ClickedTowerBtn.Price)
+        {
+            Currency -= ClickedTowerBtn.Price;
+
+            Hover.Instance.Deactivate();
+        }
     }
 
-    private void HandleEsc()
+    private void HandleEsc() //handles the escape key
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Hover.Instance.Deactivate();
+            Hover.Instance.Deactivate(); //deactivates the hover icon instance
         }
     }
 }
