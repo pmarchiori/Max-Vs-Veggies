@@ -12,7 +12,9 @@ public class TileScript : MonoBehaviour
     private Color32 fullColor = new Color32(255, 188, 188, 255); //color of the tile when unavailable for tower placement
     private Color32 emptyColor = new Color32(96, 255, 90, 255); //color of the tile when available for tower placement
 
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer SpriteRenderer { get; set; }
+
+    public bool Debugging { get; set; }
 
     public Vector2 WorldPosition //tiles center wold position
     {
@@ -25,7 +27,7 @@ public class TileScript : MonoBehaviour
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -49,12 +51,12 @@ public class TileScript : MonoBehaviour
     {
         if(!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedTowerBtn != null)
         {
-            if(IsEmpty)
+            if(IsEmpty && !Debugging)
             {
                 ColorTile(emptyColor);
             }
             
-            if(!IsEmpty)
+            if(!IsEmpty && !Debugging)
             {
                 ColorTile(fullColor);
             }
@@ -67,7 +69,10 @@ public class TileScript : MonoBehaviour
 
     private void OnMouseExit()
     {
-        ColorTile(Color.white);
+        if(!Debugging)
+        {
+            ColorTile(Color.white);
+        }  
     }
 
     //places a tower on the tile
@@ -89,6 +94,6 @@ public class TileScript : MonoBehaviour
     //sets the color on the tiles
     private void ColorTile(Color newColor) 
     {
-        spriteRenderer.color = newColor;
+        SpriteRenderer.color = newColor;
     }
 }
