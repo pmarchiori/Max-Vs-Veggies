@@ -11,15 +11,18 @@ public class LevelManager : Singleton<LevelManager>
 
     [SerializeField] private CameraMovement cameraMovement;
 
-    [SerializeField] private Transform map;
+    [SerializeField] private Transform map; 
 
-    private Point pointASpawn;
+    //spawn / despawn points
+    private Point pointASpawn; 
     private Point pointBSpawn;
 
     [SerializeField] private GameObject pointAPrefab;
     [SerializeField] private GameObject pointBPrefab;
 
-    public Dictionary<Point, TileScript> Tiles { get; set; }
+    private Point mapSize;
+
+    public Dictionary<Point, TileScript> Tiles { get; set; } //dictionary that contains all tiles
 
     public float TileSize //property for returning the size of a tile
     {
@@ -36,6 +39,8 @@ public class LevelManager : Singleton<LevelManager>
         Tiles = new Dictionary<Point, TileScript>();
 
         string[] mapData = ReadLevelText();
+
+        mapSize = new Point(mapData[0].ToCharArray().Length, mapData.Length);
 
         int mapX = mapData[0].ToCharArray().Length; //calculates the x map size
         int mapY = mapData.Length; //calculates the y map size
@@ -89,5 +94,10 @@ public class LevelManager : Singleton<LevelManager>
 
         pointBSpawn = new Point(11,6);
         Instantiate(pointBPrefab, Tiles[pointBSpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
+    }
+
+    public bool Inbounds(Point position)
+    {
+        return position.X >= 0 && position.Y >= 0 && position.X < mapSize.X && position.Y < mapSize.Y;
     }
 }
