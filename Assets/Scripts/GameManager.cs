@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
  
     [SerializeField] private TextMeshProUGUI currencyText;
 
+    public ObjectPool Pool { get; set; }
+
     [SerializeField] private int currency;
 
     public int Currency
@@ -26,9 +28,14 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private void Awake()
+    {
+        Pool = GetComponent<ObjectPool>();
+    }
+
     void Start()
     {
-        Currency = 10;
+        Currency = 50;
     }
 
     void Update()
@@ -62,5 +69,34 @@ public class GameManager : Singleton<GameManager>
         {
             Hover.Instance.Deactivate(); //deactivates the hover icon instance
         }
+    }
+
+    public void StartWave()
+    {
+        StartCoroutine(SpawnWave());
+    }
+
+    private IEnumerator SpawnWave()
+    {
+        int enemyIndex = Random.Range(0,3);
+
+        string type = string.Empty;
+
+        switch(enemyIndex)
+        {
+            case 0:
+                type = "Mob_01";
+                break;
+            case 1:
+                type = "Mob_02";
+                break;
+            case 2:
+                type = "Mob_03";
+                break;
+        }
+
+        Pool.GetObject(type);
+
+        yield return new WaitForSeconds(2.5f);
     }
 }
