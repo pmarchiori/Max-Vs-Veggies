@@ -25,7 +25,7 @@ public class AStarDebugger : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            AStar.GetPath(start.GridPosition);
+            AStar.GetPath(start.GridPosition, goal.GridPosition);
         }
     }
 
@@ -56,11 +56,11 @@ public class AStarDebugger : MonoBehaviour
         }
     }
 
-    public void DebugPath(HashSet<Node> openList, HashSet<Node> closedList)
+    public void DebugPath(HashSet<Node> openList, HashSet<Node> closedList, Stack<Node> path)
     {
         foreach (Node node in openList)
         {
-            if(node.TileReference != start)
+            if(node.TileReference != start && node.TileReference != goal)
             {
                 CreateDebugTile(node.TileReference.WorldPosition, Color.cyan, node);
             }
@@ -70,9 +70,19 @@ public class AStarDebugger : MonoBehaviour
 
         foreach (Node node in closedList)
         {
-            if(node.TileReference != start  && node.TileReference != goal)
+            if(node.TileReference != start  && node.TileReference != goal && !path.Contains(node))
             {
                 CreateDebugTile(node.TileReference.WorldPosition, Color.blue, node);
+            }
+
+            PointToParent(node, node.TileReference.WorldPosition);
+        }
+
+        foreach (Node node in path)
+        {
+            if(node.TileReference != start  && node.TileReference != goal)
+            {
+                CreateDebugTile(node.TileReference.WorldPosition, Color.magenta, node);
             }
         }
     }
@@ -141,7 +151,11 @@ public class AStarDebugger : MonoBehaviour
 
         if(node != null)
         {
-            debugTile.GetComponent<DebugTile>().G.text += node.G;
+            DebugTile tmp = debugTile.GetComponent<DebugTile>();
+
+            tmp.G.text += node.G;
+            tmp.H.text += node.H;
+            tmp.F.text += node.F;
         }
 
         debugTile.GetComponent<SpriteRenderer>().color = color;
