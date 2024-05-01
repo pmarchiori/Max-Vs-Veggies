@@ -20,6 +20,8 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private GameObject pointAPrefab;
     [SerializeField] private GameObject pointBPrefab;
 
+    public Spawn PointA { get; set; }
+
     private Point mapSize;
 
     public Dictionary<Point, TileScript> Tiles { get; set; } //dictionary that contains all tiles
@@ -90,7 +92,9 @@ public class LevelManager : Singleton<LevelManager>
     private void SpawnPoints()
     {
         pointASpawn = new Point(0,0);
-        Instantiate(pointAPrefab, Tiles[pointASpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
+        GameObject tmp =  (GameObject)Instantiate(pointAPrefab, Tiles[pointASpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
+        PointA = tmp.GetComponent<Spawn>();
+        PointA.name = "PointA";
 
         pointBSpawn = new Point(11,6);
         Instantiate(pointBPrefab, Tiles[pointBSpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);

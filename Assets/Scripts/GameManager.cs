@@ -95,8 +95,8 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
 
-        Pool.GetObject(type);
-
+        Enemy enemy = Pool.GetObject(type).GetComponent<Enemy>(); //requests enemy from the pool
+        enemy.Spawn();
         yield return new WaitForSeconds(2.5f);
     }
 }
