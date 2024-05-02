@@ -18,7 +18,7 @@ public static class AStar
         }   
     }
 
-    public static void GetPath(Point start, Point goal) //generates path with A* algorithm
+    public static void /*Stack<Node>*/ GetPath(Point start, Point goal) //generates path with A* algorithm
     {
         if(nodes == null)
         {
@@ -100,8 +100,10 @@ public static class AStar
 
         }
 
+        //return finalPath;
+
         //DEBUG
-        GameObject.Find("AStarDebugger").GetComponent<AStarDebugger>().DebugPath(openList, closedList, finalPath);
+        //GameObject.Find("AStarDebugger").GetComponent<AStarDebugger>().DebugPath(openList, closedList, finalPath);
     }
 
     private static bool ConnectedDiagonally(Node currentNode, Node neighbour)
