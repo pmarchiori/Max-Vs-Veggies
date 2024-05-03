@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 
             if(pathIndex == StageManager.main.path.Length)
             {
+                EnemySpawner.onEnemyKilled.Invoke();
                 Destroy(gameObject);
                 return;
             }
