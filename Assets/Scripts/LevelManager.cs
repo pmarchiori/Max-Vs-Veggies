@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
+using Unity.Mathematics;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    //array of tile prefabs, used to create tiles in game
+//array of tile prefabs, used to create tiles in game
     [SerializeField] private GameObject[] tilePrefabs;
 
     [SerializeField] private CameraMovement cameraMovement;
