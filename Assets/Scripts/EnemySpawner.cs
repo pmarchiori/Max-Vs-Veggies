@@ -10,18 +10,19 @@ public class EnemySpawner : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private TextMeshProUGUI waveCounterText;
+    [SerializeField] private GameObject NextWaveButton;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 6;
     [SerializeField] private float enemiesPerSecond = 0.5f;
-    [SerializeField] private float timeBetweenWaves = 5f;
+    [SerializeField] private float timeBetweenWaves = 1f;
     [SerializeField] private float diffScalingFactor = 0.75f;
     [SerializeField] private float epsCap = 10f;
 
     [Header("Events")]
     public static UnityEvent onEnemyKilled = new UnityEvent();
 
-    [SerializeField] private int currentWave = 1;
+    [SerializeField] private int currentWave = 0;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
@@ -35,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartWave());
+        //StartCoroutine(StartWave());
     }
 
     private void Update()
@@ -67,9 +68,17 @@ public class EnemySpawner : MonoBehaviour
         enemiesAlive--;
     }
 
+    public void StartWaveFromButton()
+    {
+        NextWaveButton.SetActive(false);
+        StartCoroutine(StartWave());
+    }
+
     private IEnumerator StartWave()
     {
-        yield return new WaitForSeconds(timeBetweenWaves);
+        currentWave++;
+
+        yield return new WaitForSeconds(0.5f);
 
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
@@ -80,9 +89,12 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
-        currentWave++;
 
-        StartCoroutine(StartWave());
+        NextWaveButton.SetActive(true);
+
+        //currentWave++;
+
+        //StartCoroutine(StartWave());
     }
 
     private void SpawnEnemy()

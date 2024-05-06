@@ -71,7 +71,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void StartWave()
+    private void StartWave()
     {
         StartCoroutine(SpawnWave());
     }

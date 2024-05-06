@@ -364,7 +364,7 @@ MonoBehaviour:
   waveCounterText: {fileID: 592208014}
   baseEnemies: 6
   enemiesPerSecond: 0.5
-  timeBetweenWaves: 5
+  timeBetweenWaves: 0.5
   diffScalingFactor: 0.75
   epsCap: 10
   currentWave: 1
@@ -1230,9 +1230,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 952151813}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartWave
+      - m_Target: {fileID: 266320207}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartWaveFromButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
