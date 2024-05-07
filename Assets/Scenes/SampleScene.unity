@@ -365,6 +365,7 @@ MonoBehaviour:
   NextWaveButton: {fileID: 996426375}
   lives: 5
   livesText: {fileID: 1720678206}
+  gameManager: {fileID: 0}
   baseEnemies: 6
   enemiesPerSecond: 0.5
   timeBetweenWaves: 0.5
@@ -552,7 +553,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 428269769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 952151813}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &428269769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,6 +1389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currencyText: {fileID: 1893340600}
   currency: 0
+  gameOverMenu: {fileID: 1581402698}
 --- !u!4 &952151814
 Transform:
   m_ObjectHideFlags: 0
@@ -3189,7 +3203,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1888424890}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 952151813}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: QuitLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1888424890
 MonoBehaviour:
   m_ObjectHideFlags: 0

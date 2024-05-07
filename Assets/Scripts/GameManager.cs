@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -13,6 +14,10 @@ public class GameManager : Singleton<GameManager>
     //public ObjectPool Pool { get; set; }
 
     [SerializeField] private int currency;
+
+    private bool gameOver = false;
+
+    [SerializeField] private GameObject gameOverMenu;
 
     public int Currency
     {
@@ -69,6 +74,27 @@ public class GameManager : Singleton<GameManager>
         {
             Hover.Instance.Deactivate(); //deactivates the hover icon instance
         }
+    }
+
+    public void GameOver()
+    {
+        if(!gameOver)
+        {
+            gameOver = true;
+            gameOverMenu.SetActive(true);
+        }
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitLevel()
+    {
+        
     }
 
     // private void StartWave()

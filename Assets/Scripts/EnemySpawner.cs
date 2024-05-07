@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject NextWaveButton;
     [SerializeField] private int lives;
     [SerializeField] private TextMeshProUGUI livesText;
+    [SerializeField] private GameManager gameManager;
 
 
     [Header("Attributes")]
@@ -40,12 +41,13 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         //StartCoroutine(StartWave());
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
         waveCounterText.text = "Wave: " + currentWave;
-
+        
         livesText.text = lives.ToString();
 
         if(!isSpawning)
@@ -66,6 +68,8 @@ public class EnemySpawner : MonoBehaviour
         {
             EndWave();
         }
+
+        GameOverCheck();
     }
 
     private void EnemyKilled()
@@ -122,5 +126,15 @@ public class EnemySpawner : MonoBehaviour
     public void DecreaseLife()
     {
         lives--;
+    }
+
+    private void GameOverCheck()
+    {
+        if(lives <= 0)
+        {
+            lives = 0;
+            NextWaveButton.SetActive(false);
+            gameManager.GameOver();
+        }
     }
 }
