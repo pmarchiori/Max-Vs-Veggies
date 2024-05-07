@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
  
     [SerializeField] private TextMeshProUGUI currencyText;
 
-    public ObjectPool Pool { get; set; }
+    //public ObjectPool Pool { get; set; }
 
     [SerializeField] private int currency;
 
@@ -28,10 +28,10 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private void Awake()
-    {
-        Pool = GetComponent<ObjectPool>();
-    }
+    // private void Awake()
+    // {
+    //     Pool = GetComponent<ObjectPool>();
+    // }
 
     void Start()
     {
@@ -71,32 +71,32 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private void StartWave()
-    {
-        StartCoroutine(SpawnWave());
-    }
+    // private void StartWave()
+    // {
+    //     StartCoroutine(SpawnWave());
+    // }
 
-    private IEnumerator SpawnWave()
-    {
-        int enemyIndex = Random.Range(0,3);
+    // private IEnumerator SpawnWave()
+    // {
+    //     int enemyIndex = Random.Range(0,3);
 
-        string type = string.Empty;
+    //     string type = string.Empty;
 
-        switch(enemyIndex)
-        {
-            case 0:
-                type = "Mob_01";
-                break;
-            case 1:
-                type = "Mob_02";
-                break;
-            case 2:
-                type = "Mob_03";
-                break;
-        }
+    //     switch(enemyIndex)
+    //     {
+    //         case 0:
+    //             type = "Mob_01";
+    //             break;
+    //         case 1:
+    //             type = "Mob_02";
+    //             break;
+    //         case 2:
+    //             type = "Mob_03";
+    //             break;
+    //     }
 
-        Enemy enemy = Pool.GetObject(type).GetComponent<Enemy>(); //requests enemy from the pool
-        //enemy.Spawn();
-        yield return new WaitForSeconds(2.5f);
-    }
+    //     Enemy enemy = Pool.GetObject(type).GetComponent<Enemy>(); //requests enemy from the pool
+    //     //enemy.Spawn();
+    //     yield return new WaitForSeconds(2.5f);
+    // }
 }

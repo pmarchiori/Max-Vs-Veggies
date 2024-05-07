@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,9 +20,12 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int pathIndex = 0;
 
+    [SerializeField] private EnemySpawner enemySpawner;
+
     private void Start()
     {
         target = StageManager.main.path[pathIndex];
+        enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 
     private void Update()
@@ -33,6 +37,7 @@ public class Enemy : MonoBehaviour
             if(pathIndex == StageManager.main.path.Length)
             {
                 EnemySpawner.onEnemyKilled.Invoke();
+                enemySpawner.DecreaseLife();
                 Destroy(gameObject);
                 return;
             }

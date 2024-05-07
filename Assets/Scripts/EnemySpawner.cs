@@ -11,6 +11,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private TextMeshProUGUI waveCounterText;
     [SerializeField] private GameObject NextWaveButton;
+    [SerializeField] private int lives;
+    [SerializeField] private TextMeshProUGUI livesText;
+
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 6;
@@ -42,6 +45,8 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         waveCounterText.text = "Wave: " + currentWave;
+
+        livesText.text = lives.ToString();
 
         if(!isSpawning)
         {
@@ -112,5 +117,10 @@ public class EnemySpawner : MonoBehaviour
     private float EnemiesPerSecond()
     {
         return Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, diffScalingFactor), 0f, epsCap);
+    }
+
+    public void DecreaseLife()
+    {
+        lives--;
     }
 }
