@@ -9,6 +9,8 @@ public class TileScript : MonoBehaviour
 
     public bool IsEmpty { get; private set; }
 
+    private Tower tower;
+
     private Color32 fullColor = new Color32(255, 188, 188, 255); //color of the tile when unavailable for tower placement
     private Color32 emptyColor = new Color32(96, 255, 90, 255); //color of the tile when available for tower placement
 
@@ -68,6 +70,17 @@ public class TileScript : MonoBehaviour
                 PlaceTower();
             }
         }
+        else if(!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedTowerBtn == null && Input.GetMouseButtonDown(0))
+        {
+            if(tower != null)
+            {
+                GameManager.Instance.SelectTower(tower);
+            }
+            else
+            {
+                GameManager.Instance.DeselectTower();
+            }
+        }
     }
 
     private void OnMouseExit()
@@ -86,6 +99,8 @@ public class TileScript : MonoBehaviour
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 
         tower.transform.SetParent(transform); //sets the tower as transform child of the tile
+
+        this.tower = tower.transform.GetChild(0).GetComponent<Tower>();
 
         IsEmpty = false;
 
