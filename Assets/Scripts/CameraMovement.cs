@@ -8,17 +8,13 @@ public class CameraMovement : MonoBehaviour
 
     private float xMax;
     private float yMin;
-    void Start()
-    {
-        
-    }
 
     private void Update()
     {
         GetInput();
     }
 
-    private void GetInput()
+    private void GetInput() //receives Input from WASD and translates the camera to the respective position
     {
         if(Input.GetKey(KeyCode.W))
         {
@@ -43,7 +39,7 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0, xMax), Mathf.Clamp(transform.position.y, yMin, 0), -10);
     }
 
-    public void SetLimits(Vector3 maxTile)
+    public void SetLimits(Vector3 maxTile) //sets the limits for the camera movement
     {
         Vector3 wp = Camera.main.ViewportToWorldPoint(new Vector3(1,0));
 

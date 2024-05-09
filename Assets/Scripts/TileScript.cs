@@ -34,11 +34,6 @@ public class TileScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
-    {
-        
-    }
-
     //sets up the tile
     public void Setup(Point gridPos, Vector3 worldPos, Transform parent)
     {

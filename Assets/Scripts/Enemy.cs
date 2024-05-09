@@ -30,28 +30,28 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if(Vector2.Distance(target.position, transform.position) <= 0.1f)
+        if(Vector2.Distance(target.position, transform.position) <= 0.1f) //checks if the enemy isnt already on his target position
         {
-            pathIndex++;
+            pathIndex++; //changes the current target for the enemy movement
 
-            if(pathIndex == StageManager.main.path.Length)
+            if(pathIndex == StageManager.main.path.Length) //checks if the enemy has reached the last target on his path
             {
-                EnemySpawner.onEnemyKilled.Invoke();
-                enemySpawner.DecreaseLife();
-                Destroy(gameObject);
+                EnemySpawner.onEnemyKilled.Invoke(); //invokes the event "onEnemyKilled" from the EnemySpawner script
+                enemySpawner.DecreaseLife(); //invokes the function "DecreaseLife" from EnemySpawner script
+                Destroy(gameObject); //destroys the enemy game object
                 return;
             }
             else
             {
-                target = StageManager.main.path[pathIndex];
+                target = StageManager.main.path[pathIndex]; //if the enemy hasnt reached last target, proceeds to next target
             }
         }
     }
 
     private void FixedUpdate()
     {
-        Vector2 direction = (target.position - transform.position).normalized;
+        Vector2 direction = (target.position - transform.position).normalized; //gets the direction the enemy should move
 
-        rb.velocity = direction * moveSpeed;
+        rb.velocity = direction * moveSpeed; //moves the enemy
     }
 }
