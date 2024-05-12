@@ -100,10 +100,6 @@ public class EnemySpawner : MonoBehaviour
         timeSinceLastSpawn = 0f;
 
         NextWaveButton.SetActive(true);
-
-        //currentWave++;
-
-        //StartCoroutine(StartWave());
     }
 
     private void SpawnEnemy()
