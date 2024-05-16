@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private EnemySpawner enemySpawner;
 
+    public bool IsActive = true;
+
     private void Start()
     {
         target = StageManager.main.path[pathIndex];
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour
             {
                 EnemySpawner.onEnemyKilled.Invoke(); //invokes the event "onEnemyKilled" from the EnemySpawner script
                 enemySpawner.DecreaseLife(); //invokes the function "DecreaseLife" from EnemySpawner script
+                IsActive = false;
                 Destroy(gameObject); //destroys the enemy game object
                 return;
             }

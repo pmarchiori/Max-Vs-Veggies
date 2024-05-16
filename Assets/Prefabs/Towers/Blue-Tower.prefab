@@ -133,6 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0debc0af47ee94cab12098ee75924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3818958337021492455, guid: 91de943883b805945bc036a37a49a969, type: 3}
+  attackTimer: 0
+  attackCooldown: 2
 --- !u!1 &5822185837519734625
 GameObject:
   m_ObjectHideFlags: 0
