@@ -6,9 +6,21 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab; 
 
+    [SerializeField] private float projectileSpeed;
+
+    public float ProjectileSpeed
+    {
+        get {return projectileSpeed;}
+    }
+
     private SpriteRenderer spriteRenderer;
 
-    private Enemy target;
+    private Enemy target; //towers current target
+
+    public Enemy Target
+    {
+        get{return target;}
+    }
 
     private Queue<Enemy> enemies = new Queue<Enemy>();
 
@@ -17,6 +29,8 @@ public class Tower : MonoBehaviour
     [SerializeField] private float attackTimer;
 
     [SerializeField] private float attackCooldown;
+
+    private Projectile projectile;
 
     void Start()
     {
@@ -66,9 +80,18 @@ public class Tower : MonoBehaviour
 
     private void Shoot()
     {
-        projectilePrefab.transform.position = this.transform.position;
+        GameObject projectileObject = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        
+        //projectilePrefab.transform.position = this.transform.position;
 
-        Instantiate(projectilePrefab);
+        //Instantiate(projectilePrefab);
+
+         if (projectile != null)
+         {
+            projectile.Initialize(this);
+         }
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -86,5 +109,4 @@ public class Tower : MonoBehaviour
             target = null;
         }
     }
-
 }
