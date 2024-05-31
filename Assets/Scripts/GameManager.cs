@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
         set
         {
             this.currency = value;
-            this.currencyText.text = value.ToString() + "$";
+            //this.currencyText.text = value.ToString() + "$";
         }
     }
 
@@ -48,6 +48,7 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         HandleEsc();
+        currencyText.text = currency.ToString() + "$";
     }
 
     public void IncreaseCurrency(int amount)
