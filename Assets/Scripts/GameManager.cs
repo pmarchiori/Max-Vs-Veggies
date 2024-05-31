@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager> 
 {
     public TowerBtn ClickedTowerBtn  { get; set; }
  
@@ -48,6 +48,11 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         HandleEsc();
+    }
+
+    public void IncreaseCurrency(int amount)
+    {
+        currency += amount;
     }
 
     public void PickTower(TowerBtn towerBtn) //pick the respective tower of the button pressed
