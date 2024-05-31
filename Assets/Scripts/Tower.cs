@@ -41,7 +41,7 @@ public class Tower : MonoBehaviour
     void Update()
     {
         Attack();
-        Debug.Log(target);
+        //Debug.Log(target);
     }
 
     public void Select()

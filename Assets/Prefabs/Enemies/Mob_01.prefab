@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5989930420021734828}
   - component: {fileID: 4199747412760729489}
   - component: {fileID: 2804315711255751283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mob_01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -162,5 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4199747412760729489}
-  moveSpeed: 3
+  moveSpeed: 1.5
   enemySpawner: {fileID: 0}
+  IsActive: 1
