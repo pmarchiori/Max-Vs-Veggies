@@ -80,6 +80,20 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void SellTower()
+    {
+        if(selectedTower != null)
+        {
+            Currency += selectedTower.Price / 2;
+
+            selectedTower.GetComponentInParent<TileScript>().IsEmpty = true;
+
+            Destroy(selectedTower.transform.parent.gameObject);
+
+            DeselectTower();
+        }
+    }
+
     public void SelectTower(Turret turret)
     {
         if(selectedTower != null)
@@ -89,7 +103,7 @@ public class GameManager : Singleton<GameManager>
         selectedTower = turret; 
         selectedTower.Select();
 
-        //sellText.text = "+ " + (selectedTower.price)
+        sellText.text = "+ " + (selectedTower.Price / 2).ToString();
 
         upgradePanel.SetActive(true);
     }
