@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    private SpriteRenderer spriteRenderer;
 
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 3f;
@@ -17,6 +18,11 @@ public class Turret : MonoBehaviour
 
     private Transform target;
     private float timeUntilFire;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
@@ -40,6 +46,11 @@ public class Turret : MonoBehaviour
                 timeUntilFire = 0f;
             }
         }
+    }
+
+    public void Select()
+    {
+        spriteRenderer.enabled = !spriteRenderer.enabled;
     }
 
     private void Shoot()

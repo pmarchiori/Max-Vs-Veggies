@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6166561402686612935}
   - component: {fileID: 1313495915739732770}
   - component: {fileID: 8905356545008166462}
-  - component: {fileID: 3597577725589092997}
+  - component: {fileID: 946256911860808638}
   m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
@@ -153,7 +153,7 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3597577725589092997
+--- !u!114 &946256911860808638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,13 +162,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2667940678021206166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0debc0af47ee94cab12098ee75924e, type: 3}
+  m_Script: {fileID: 11500000, guid: d8838fc4ef0585e468b03b8a6b2edcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3818958337021492455, guid: 91de943883b805945bc036a37a49a969, type: 3}
-  projectileSpeed: 3
-  attackTimer: 0
-  attackCooldown: 0.3
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  bulletPrefab: {fileID: 6732147057549381433, guid: c4602ba225824324dac3fa6686c705dd, type: 3}
+  firingPoint: {fileID: 6656667006743319464}
+  targetingRange: 3
+  bps: 10
 --- !u!1 &5822185837519734625
 GameObject:
   m_ObjectHideFlags: 0

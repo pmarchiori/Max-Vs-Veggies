@@ -7,9 +7,9 @@ public class TileScript : MonoBehaviour
 {
     public Point GridPosition { get; private set; } //tiles grid position
 
-    public bool IsEmpty { get; private set; }
+    public bool IsEmpty { get;  set; }
 
-    private Tower tower;
+    private Turret turret;
 
     private Color32 fullColor = new Color32(255, 188, 188, 255); //color of the tile when unavailable for tower placement
     private Color32 emptyColor = new Color32(96, 255, 90, 255); //color of the tile when available for tower placement
@@ -67,9 +67,9 @@ public class TileScript : MonoBehaviour
         }
         else if(!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedTowerBtn == null && Input.GetMouseButtonDown(0))
         {
-            if(tower != null)
+            if(turret != null)
             {
-                GameManager.Instance.SelectTower(tower);
+                GameManager.Instance.SelectTower(turret);
             }
             else
             {
@@ -90,12 +90,12 @@ public class TileScript : MonoBehaviour
     private void PlaceTower()
     {
         //creates the tower
-        GameObject tower = (GameObject)Instantiate(GameManager.Instance.ClickedTowerBtn.TowerPrefab, transform.position, Quaternion.identity);
-        tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
+        GameObject turret = (GameObject)Instantiate(GameManager.Instance.ClickedTowerBtn.TowerPrefab, transform.position, Quaternion.identity);
+        turret.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 
-        tower.transform.SetParent(transform); //sets the tower as transform child of the tile
+        turret.transform.SetParent(transform); //sets the tower as transform child of the tile
 
-        this.tower = tower.transform.GetChild(0).GetComponent<Tower>();
+        this.turret = turret.transform.GetChild(0).GetComponent<Turret>();
 
         IsEmpty = false;
 

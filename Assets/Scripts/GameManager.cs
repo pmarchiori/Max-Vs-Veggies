@@ -19,7 +19,11 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private GameObject gameOverMenu;
 
-    private Tower selectedTower; //current selected tower
+    private Turret selectedTower; //current selected tower
+
+    [SerializeField] private GameObject upgradePanel;
+
+    [SerializeField] private TextMeshProUGUI sellText;
 
     public int Currency
     {
@@ -76,14 +80,18 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void SelectTower(Tower tower)
+    public void SelectTower(Turret turret)
     {
         if(selectedTower != null)
         {
             selectedTower.Select();
         }
-        selectedTower = tower;
+        selectedTower = turret; 
         selectedTower.Select();
+
+        //sellText.text = "+ " + (selectedTower.price)
+
+        upgradePanel.SetActive(true);
     }
 
     public void DeselectTower()
@@ -92,8 +100,10 @@ public class GameManager : Singleton<GameManager>
         {
             selectedTower.Select();
         }
+        
+        upgradePanel.SetActive(false);
 
-        selectedTower = null;
+        selectedTower = null; //remove the reference to the tower 
     }
 
     private void HandleEsc() //handles the escape key

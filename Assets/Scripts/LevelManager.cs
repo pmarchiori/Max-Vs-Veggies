@@ -80,6 +80,11 @@ public class LevelManager : Singleton<LevelManager>
 
         //uses newTile to change the position of the tile
         newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0), map);
+
+        if(tileIndex == 1)
+        {
+            newTile.IsEmpty = false;
+        }
     }
 
     private string[] ReadLevelText()
