@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 837091979173592670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1428, y: 0.0843, z: 0}
+  m_LocalPosition: {x: -0.091, y: 0.051, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 2667940678021206166}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.096, y: -0.077, z: 0}
+  m_LocalPosition: {x: 0.73, y: -0.68, z: 0}
   m_LocalScale: {x: 5.5, y: 5.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -171,7 +171,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6732147057549381433, guid: c4602ba225824324dac3fa6686c705dd, type: 3}
   firingPoint: {fileID: 6656667006743319464}
   targetingRange: 3
-  bps: 10
+  bps: 1
 --- !u!1 &5822185837519734625
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 1562676322346055566}
   - component: {fileID: 3046801582276026484}
   m_Layer: 0
-  m_Name: Blue-Tower
+  m_Name: Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
