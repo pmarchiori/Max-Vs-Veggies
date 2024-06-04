@@ -5,8 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public delegate void CurrencyChanged();  //delegate for the currency changed event
+
 public class GameManager : Singleton<GameManager> 
 {
+    public event CurrencyChanged Changed; //event that is triggered when the currency changes
+
     public TowerBtn ClickedTowerBtn  { get; set; }
  
     [SerializeField] private TextMeshProUGUI currencyText;
@@ -36,6 +40,8 @@ public class GameManager : Singleton<GameManager>
         {
             this.currency = value;
             //this.currencyText.text = value.ToString() + "$";
+
+            OnCurrencyChanged();
         }
     }
 
@@ -46,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        Currency = 50;
+        Currency = 10;
     }
 
     void Update()
@@ -147,6 +153,14 @@ public class GameManager : Singleton<GameManager>
     public void QuitLevel()
     {
         
+    }
+
+    public void OnCurrencyChanged()
+    {
+        if(Changed != null)
+        {
+            Changed();
+        }
     }
 
     // private void StartWave()
