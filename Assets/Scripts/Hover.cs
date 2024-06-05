@@ -7,6 +7,8 @@ public class Hover : Singleton<Hover>
     private SpriteRenderer spriteRenderer; //reference to the tower icon sprite renderer
 
     private SpriteRenderer rangeSpriteRenderer; //reference to the tower range sprite renderer
+
+    public bool IsVisible {get; private set;}
     void Start()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,6 +35,8 @@ public class Hover : Singleton<Hover>
         this.spriteRenderer.sprite = sprite; //sets the sprite
         spriteRenderer.enabled = true; //enables tower icon renderer  
         rangeSpriteRenderer.enabled = true; //enables tower range renderer
+
+        IsVisible = true;
     }
 
     public void Deactivate() //deactivates hover icon
@@ -41,5 +45,7 @@ public class Hover : Singleton<Hover>
         rangeSpriteRenderer.enabled = false; //disables tower range renderer
 
         GameManager.Instance.ClickedTowerBtn = null; //unclicks the button
+
+        IsVisible = false;
     }
 }

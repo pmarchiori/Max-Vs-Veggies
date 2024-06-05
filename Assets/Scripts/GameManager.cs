@@ -9,25 +9,19 @@ public delegate void CurrencyChanged();  //delegate for the currency changed eve
 
 public class GameManager : Singleton<GameManager> 
 {
-    public event CurrencyChanged Changed; //event that is triggered when the currency changes
-
+    [Header("References")]
+    private Turret selectedTower; //current selected tower
     public TowerBtn ClickedTowerBtn  { get; set; }
- 
+    [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject upgradePanel;        
+    [SerializeField] private TextMeshProUGUI sellText;
     [SerializeField] private TextMeshProUGUI currencyText;
 
-    //public ObjectPool Pool { get; set; }
-
-    [SerializeField] private int currency;
-
+    [Header("Attributes")]
     private bool gameOver = false;
-
-    [SerializeField] private GameObject gameOverMenu;
-
-    private Turret selectedTower; //current selected tower
-
-    [SerializeField] private GameObject upgradePanel;
-
-    [SerializeField] private TextMeshProUGUI sellText;
+    public event CurrencyChanged Changed; //event that is triggered when the currency changes
+    [SerializeField] private int currency;
 
     public int Currency
     {
@@ -44,6 +38,8 @@ public class GameManager : Singleton<GameManager>
             OnCurrencyChanged();
         }
     }
+
+    //public ObjectPool Pool { get; set; }
 
     // private void Awake()
     // {
@@ -130,7 +126,18 @@ public class GameManager : Singleton<GameManager>
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Hover.Instance.Deactivate(); //deactivates the hover icon instance
+            if(selectedTower == null && !Hover.Instance.IsVisible)
+            {    
+                ShowPauseMenu();
+            }
+            else if(Hover.Instance.IsVisible)
+            {
+                DropTower();
+            }
+            else if(selectedTower != null)
+            {
+                DeselectTower();
+            }
         }
     }
 
@@ -161,6 +168,26 @@ public class GameManager : Singleton<GameManager>
         {
             Changed();
         }
+    }
+
+    public void ShowPauseMenu()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+
+        if(!pauseMenu.activeSelf)
+        {
+            Time.timeScale = 1;
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
+    }
+
+    private void DropTower()
+    {
+        ClickedTowerBtn = null;
+        Hover.Instance.Deactivate(); //deactivates the hover icon instance
     }
 
     // private void StartWave()
