@@ -8,15 +8,14 @@ public class TileScript : MonoBehaviour
 {
     public Point GridPosition { get; private set; } //tiles grid position
 
-    public bool IsEmpty { get;  set; }
+    private SpriteRenderer spriteRenderer;
 
     private Turret turret;
 
     private Color32 fullColor = new Color32(255, 188, 188, 255); //color of the tile when unavailable for tower placement
     private Color32 emptyColor = new Color32(96, 255, 90, 255); //color of the tile when available for tower placement
 
-    private SpriteRenderer spriteRenderer;
-
+    public bool IsEmpty { get;  set; }
     public bool Walkable { get; set; }
 
     public bool Debugging { get; set; }

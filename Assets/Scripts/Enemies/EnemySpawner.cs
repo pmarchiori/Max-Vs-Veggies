@@ -22,11 +22,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 1f;
     [SerializeField] private float diffScalingFactor = 0.75f;
     [SerializeField] private float epsCap = 10f;
+    [SerializeField] private int currentWave = 0;
 
     [Header("Events")]
     public static UnityEvent onEnemyKilled = new UnityEvent();
 
-    [SerializeField] private int currentWave = 0;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;

@@ -7,7 +7,6 @@ public class EnemyHealth : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int hitPoints;
     [SerializeField] int currencyWorth;
-
     private bool isKilled = false;
 
     private GameManager gameManager;

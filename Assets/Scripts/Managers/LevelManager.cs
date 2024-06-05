@@ -6,19 +6,17 @@ using Unity.Mathematics;
 
 public class LevelManager : Singleton<LevelManager>
 {
-//array of tile prefabs, used to create tiles in game
+    [Header("References")]
+    //array of tile prefabs, used to create tiles in game
     [SerializeField] private GameObject[] tilePrefabs;
-
     [SerializeField] private CameraMovement cameraMovement;
-
     [SerializeField] private Transform map; 
+    [SerializeField] private GameObject pointAPrefab;
+    [SerializeField] private GameObject pointBPrefab;
 
     //spawn / despawn points
     private Point pointASpawn; 
     private Point pointBSpawn;
-
-    [SerializeField] private GameObject pointAPrefab;
-    [SerializeField] private GameObject pointBPrefab;
 
     public Spawn PointA { get; set; }
 

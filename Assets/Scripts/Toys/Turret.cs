@@ -11,14 +11,13 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
     private SpriteRenderer spriteRenderer;
+    private Transform target;
 
     public int Price { get; set; }
 
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float bps = 1f; //bullets per second
-
-    private Transform target;
     private float timeUntilFire;
 
     void Start()

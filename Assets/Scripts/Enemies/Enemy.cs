@@ -10,18 +10,16 @@ public class Enemy : MonoBehaviour
     // {
     //     transform.position = LevelManager.Instance.PointA.transform.position;
     // }
+    
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private EnemySpawner enemySpawner;
+    private Transform target;
 
 
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
-
-    private Transform target;
     private int pathIndex = 0;
-
-    [SerializeField] private EnemySpawner enemySpawner;
-
     public bool IsActive = true;
 
     private void Start()
