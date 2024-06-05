@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
     public TowerBtn ClickedTowerBtn  { get; set; }
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject upgradePanel;        
     [SerializeField] private TextMeshProUGUI sellText;
     [SerializeField] private TextMeshProUGUI currencyText;
@@ -172,16 +173,35 @@ public class GameManager : Singleton<GameManager>
 
     public void ShowPauseMenu()
     {
-        pauseMenu.SetActive(!pauseMenu.activeSelf);
-
-        if(!pauseMenu.activeSelf)
+        if(optionsMenu.activeSelf)
         {
-            Time.timeScale = 1;
+            HideOptionsMenu();
         }
         else
         {
-            Time.timeScale = 0;
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+
+            if(!pauseMenu.activeSelf)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
         }
+    }
+
+    public void ShowOptionsMenu()
+    {
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void HideOptionsMenu()
+    {
+        pauseMenu.SetActive(true);
+        optionsMenu.SetActive(false);
     }
 
     private void DropTower()
