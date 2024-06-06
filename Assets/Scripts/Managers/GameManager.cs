@@ -106,7 +106,7 @@ public class GameManager : Singleton<GameManager>
         selectedTower = turret; 
         selectedTower.Select();
 
-        sellText.text = "+ " + (selectedTower.Price / 2).ToString();
+        sellText.text = "Sell for: " + (selectedTower.Price / 2).ToString();
 
         upgradePanel.SetActive(true);
     }
