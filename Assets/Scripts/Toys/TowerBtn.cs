@@ -47,6 +47,11 @@ public class TowerBtn : MonoBehaviour
         GameManager.Instance.Changed += new CurrencyChanged(PriceCheck);
     }
 
+    private void Update()
+    {
+        PriceCheck();
+    }
+
     private void PriceCheck()
     {
         if(price <= GameManager.Instance.Currency)

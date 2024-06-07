@@ -65,7 +65,7 @@ public class LevelManager : Singleton<LevelManager>
         //sets the camera limits to the max tile position
         cameraMovement.SetLimits(new Vector3(maxTile.x + TileSize, maxTile.y -TileSize));
 
-        SpawnPoints();
+        //SpawnPoints();
     }
 
     private void PlaceTile(string tileType, int x, int y, Vector3 worldStart)
@@ -94,16 +94,16 @@ public class LevelManager : Singleton<LevelManager>
         return data.Split('-');
     }
 
-    private void SpawnPoints()
-    {
-        pointASpawn = new Point(0,0);
-        GameObject tmp =  (GameObject)Instantiate(pointAPrefab, Tiles[pointASpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
-        PointA = tmp.GetComponent<Spawn>();
-        PointA.name = "PointA";
+    // private void SpawnPoints()
+    // {
+    //     pointASpawn = new Point(0,0);
+    //     GameObject tmp =  (GameObject)Instantiate(pointAPrefab, Tiles[pointASpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
+    //     PointA = tmp.GetComponent<Spawn>();
+    //     PointA.name = "PointA";
 
-        pointBSpawn = new Point(11,6);
-        Instantiate(pointBPrefab, Tiles[pointBSpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
-    }
+    //     pointBSpawn = new Point(11,6);
+    //     Instantiate(pointBPrefab, Tiles[pointBSpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
+    // }
 
     public bool Inbounds(Point position)
     {

@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     [Header("References")]
     private Turret selectedTower; //current selected tower
     public TowerBtn ClickedTowerBtn  { get; set; }
+    [SerializeField] private GameObject gameWonMenu;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject optionsMenu;
@@ -149,6 +150,11 @@ public class GameManager : Singleton<GameManager>
             gameOver = true;
             gameOverMenu.SetActive(true);
         }
+    }
+
+    public void GameWon()
+    {
+        gameWonMenu.SetActive(true);
     }
 
     public void RestartLevel()

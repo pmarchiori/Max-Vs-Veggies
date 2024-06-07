@@ -69,6 +69,7 @@ public class EnemySpawner : MonoBehaviour
             EndWave();
         }
 
+        GameWonCheck();
         GameOverCheck();
     }
 
@@ -131,6 +132,14 @@ public class EnemySpawner : MonoBehaviour
             lives = 0;
             NextWaveButton.SetActive(false);
             gameManager.GameOver();
+        }
+    }
+
+    private void GameWonCheck()
+    {
+        if(currentWave >= 2 && enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        {
+            gameManager.GameWon();
         }
     }
 }
