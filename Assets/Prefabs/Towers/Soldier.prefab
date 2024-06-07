@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1313495915739732770}
   - component: {fileID: 8905356545008166462}
   - component: {fileID: 946256911860808638}
+  - component: {fileID: 613744201160923401}
   m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
@@ -172,6 +173,18 @@ MonoBehaviour:
   firingPoint: {fileID: 6656667006743319464}
   targetingRange: 3
   bps: 1
+--- !u!114 &613744201160923401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2667940678021206166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c582e5ef575b4ef44b2cd19ce7728e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5822185837519734625
 GameObject:
   m_ObjectHideFlags: 0

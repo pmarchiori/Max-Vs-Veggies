@@ -10,7 +10,7 @@ public class TileScript : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private Turret turret;
+    private Toys toy;
 
     private Color32 fullColor = new Color32(255, 188, 188, 255); //color of the tile when unavailable for tower placement
     private Color32 emptyColor = new Color32(96, 255, 90, 255); //color of the tile when available for tower placement
@@ -67,9 +67,9 @@ public class TileScript : MonoBehaviour
         }
         else if(!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedTowerBtn == null && Input.GetMouseButtonDown(0))
         {
-            if(turret != null)
+            if(toy != null)
             {
-                GameManager.Instance.SelectTower(turret);
+                GameManager.Instance.SelectTower(toy);
             }
             else
             {
@@ -111,16 +111,16 @@ public class TileScript : MonoBehaviour
 
 
         // Create the tower      
-        GameObject turretObj = (GameObject)Instantiate(GameManager.Instance.ClickedTowerBtn.TowerPrefab, transform.position, Quaternion.identity);
-        turretObj.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
+        GameObject toyObj = (GameObject)Instantiate(GameManager.Instance.ClickedTowerBtn.TowerPrefab, transform.position, Quaternion.identity);
+        toyObj.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 
-        turretObj.transform.SetParent(transform); // Sets the tower as transform child of the tile
+        toyObj.transform.SetParent(transform); // Sets the tower as transform child of the tile
 
-        this.turret = turretObj.GetComponentInChildren<Turret>(); // Get the Turret component from the instantiated GameObject
+        this.toy = toyObj.GetComponentInChildren<Toys>(); // Get the Turret component from the instantiated GameObject
 
-        if (this.turret != null)
+        if (this.toy != null)
         {
-            this.turret.Price = GameManager.Instance.ClickedTowerBtn.Price; // Set the Price on the Turret component
+            this.toy.Price = GameManager.Instance.ClickedTowerBtn.Price; // Set the Price on the Turret component
         }
         else
         {

@@ -10,7 +10,7 @@ public delegate void CurrencyChanged();  //delegate for the currency changed eve
 public class GameManager : Singleton<GameManager> 
 {
     [Header("References")]
-    private Turret selectedTower; //current selected tower
+    private Toys selectedTower; //current selected tower
     public TowerBtn ClickedTowerBtn  { get; set; }
     [SerializeField] private GameObject gameWonMenu;
     [SerializeField] private GameObject gameOverMenu;
@@ -98,13 +98,13 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void SelectTower(Turret turret)
+    public void SelectTower(Toys toys)
     {
         if(selectedTower != null)
         {
             selectedTower.Select();
         }
-        selectedTower = turret; 
+        selectedTower = toys; 
         selectedTower.Select();
 
         sellText.text = "Sell for: " + (selectedTower.Price / 2).ToString();

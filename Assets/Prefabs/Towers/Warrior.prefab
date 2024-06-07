@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1593605055291137399}
   - component: {fileID: 1714968951752753370}
   - component: {fileID: 9150515085984634359}
-  - component: {fileID: 6874551057341923956}
+  - component: {fileID: 6337097893979111687}
+  - component: {fileID: 5009123214760715381}
   m_Layer: 2
   m_Name: Range (1)
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.64, y: -0.609, z: 0}
-  m_LocalScale: {x: 5.5, y: 5.5, z: 1}
+  m_LocalScale: {x: 4.236045, y: 4.236045, z: 0.77019}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6699419322769354848}
@@ -122,7 +123,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
---- !u!114 &6874551057341923956
+--- !u!114 &6337097893979111687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,16 +132,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2249839349121578083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8838fc4ef0585e468b03b8a6b2edcff, type: 3}
+  m_Script: {fileID: 11500000, guid: c582e5ef575b4ef44b2cd19ce7728e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5009123214760715381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2249839349121578083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602d84450b64a3e48b8c02900a4fdc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 6732147057549381433, guid: c4602ba225824324dac3fa6686c705dd, type: 3}
-  firingPoint: {fileID: 6699419322769354848}
-  targetingRange: 3
-  bps: 1
+  attackEffectPrefab: {fileID: 1797980048446813275, guid: 22e1c366ff276b048bb3c6d67a6781c5, type: 3}
+  targetingRange: 2.1
+  aps: 1
+  damage: 10
 --- !u!1 &3337011172289010336
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +197,7 @@ GameObject:
   - component: {fileID: 4240934367741565172}
   - component: {fileID: 7922090960925376499}
   m_Layer: 0
-  m_Name: Purple-Tower
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +260,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1157173505, guid: 7855264c35c3d8b4cb7c96c68587f367, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bca16086a8b3e144d9aa125cb42583b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
