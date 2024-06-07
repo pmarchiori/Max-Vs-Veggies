@@ -41,6 +41,11 @@ public class Warrior : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        timeUntilAttack = 2.99f;
+    }
+
     private void PerformAreaAttack()
     {
         Instantiate(attackEffectPrefab, transform.position, Quaternion.identity);

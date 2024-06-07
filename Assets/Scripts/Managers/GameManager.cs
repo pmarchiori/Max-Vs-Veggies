@@ -48,15 +48,15 @@ public class GameManager : Singleton<GameManager>
     //     Pool = GetComponent<ObjectPool>();
     // }
 
-    void Start()
-    {
-        Currency = 10;
-    }
+    // void Start()
+    // {
+    //     Currency = 10;
+    // }
 
     void Update()
     {
         HandleEsc();
-        currencyText.text = currency.ToString() + "$";
+        currencyText.text = currency.ToString();
     }
 
     public void IncreaseCurrency(int amount)
@@ -166,7 +166,7 @@ public class GameManager : Singleton<GameManager>
 
     public void QuitLevel()
     {
-        
+        SceneManager.LoadScene(0);
     }
 
     public void OnCurrencyChanged()

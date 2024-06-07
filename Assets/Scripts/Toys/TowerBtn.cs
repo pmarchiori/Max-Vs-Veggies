@@ -42,7 +42,7 @@ public class TowerBtn : MonoBehaviour
 
     private void Start()
     {
-        priceTxt.text = price + "$";
+        priceTxt.text = price + "";
 
         GameManager.Instance.Changed += new CurrencyChanged(PriceCheck);
     }

@@ -137,7 +137,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void GameWonCheck()
     {
-        if(currentWave >= 2 && enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        if(currentWave >= 3 && enemiesAlive == 0 && enemiesLeftToSpawn == 0)
         {
             gameManager.GameWon();
         }

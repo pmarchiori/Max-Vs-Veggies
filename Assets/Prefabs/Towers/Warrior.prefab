@@ -152,8 +152,8 @@ MonoBehaviour:
     m_Bits: 64
   attackEffectPrefab: {fileID: 1797980048446813275, guid: 22e1c366ff276b048bb3c6d67a6781c5, type: 3}
   targetingRange: 2.1
-  aps: 1
-  damage: 10
+  aps: 0.3
+  damage: 2
 --- !u!1 &3337011172289010336
 GameObject:
   m_ObjectHideFlags: 0

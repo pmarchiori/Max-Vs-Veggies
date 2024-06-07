@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 582075623406058842}
   - component: {fileID: 2869894636987205941}
   m_Layer: 6
-  m_Name: Mob_02
+  m_Name: Tomato
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 573067510, guid: e6061705a61e5db4eb62648ad10cab34, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 798c3359773bfa44fbe6af66994ff26d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -7140173065131510132}
-  moveSpeed: 1.5
   enemySpawner: {fileID: 0}
+  moveSpeed: 1.5
   IsActive: 1
 --- !u!114 &2869894636987205941
 MonoBehaviour:
@@ -178,5 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172b08e6c27fff34e81155406ec21c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 4
+  hitPoints: 8
   currencyWorth: 2
