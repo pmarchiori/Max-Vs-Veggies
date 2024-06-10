@@ -19,7 +19,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject upgradePanel;        
     [SerializeField] private TextMeshProUGUI sellText;
     [SerializeField] private TextMeshProUGUI currencyText;
-
+    [SerializeField] private TextMeshProUGUI speedButtonText;
+    //[SerializeField] private Button changeSpeedButton;
+ 
     [Header("Attributes")]
     private bool gameOver = false;
     public event CurrencyChanged Changed; //event that is triggered when the currency changes
@@ -52,6 +54,11 @@ public class GameManager : Singleton<GameManager>
     // {
     //     Currency = 10;
     // }
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     void Update()
     {
@@ -191,7 +198,7 @@ public class GameManager : Singleton<GameManager>
             {
                 Time.timeScale = 1;
             }
-            else
+            else 
             {
                 Time.timeScale = 0;
             }
@@ -208,6 +215,20 @@ public class GameManager : Singleton<GameManager>
     {
         pauseMenu.SetActive(true);
         optionsMenu.SetActive(false);
+    }
+
+    public void ChangeGameSpeed()
+    {
+        if(Time.timeScale == 1)
+        {
+            Time.timeScale = 2;
+            speedButtonText.text = ">";
+        }
+        else if(Time.timeScale == 2)
+        {
+            Time.timeScale = 1;
+            speedButtonText.text = ">>>";
+        }
     }
 
     private void DropTower()

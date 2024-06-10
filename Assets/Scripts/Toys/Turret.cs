@@ -65,7 +65,7 @@ public class Turret : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, targetingRange);
     }
 }
