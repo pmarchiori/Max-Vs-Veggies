@@ -100,6 +100,8 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
 
+        gameManager.OnWaveEnded();
+
         NextWaveButton.SetActive(true);
     }
 

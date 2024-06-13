@@ -23,9 +23,10 @@ public class GameManager : Singleton<GameManager>
     //[SerializeField] private Button changeSpeedButton;
  
     [Header("Attributes")]
+    [SerializeField] private int currency;
+    [SerializeField] private int currencyAddFromWave;
     private bool gameOver = false;
     public event CurrencyChanged Changed; //event that is triggered when the currency changes
-    [SerializeField] private int currency;
 
     public int Currency
     {
@@ -182,6 +183,11 @@ public class GameManager : Singleton<GameManager>
         {
             Changed();
         }
+    }
+
+    public void OnWaveEnded()
+    {
+        Currency += currencyAddFromWave;
     }
 
     public void ShowPauseMenu()

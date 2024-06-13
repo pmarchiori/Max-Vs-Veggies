@@ -324,8 +324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8, y: -28.76}
-  m_SizeDelta: {x: 25.7827, y: 22.4}
+  m_AnchoredPosition: {x: -0.7918, y: -28.76}
+  m_SizeDelta: {x: 28.9664, y: 22.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191681234
 MonoBehaviour:
@@ -798,7 +798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 318, y: -83}
   m_SizeDelta: {x: 67.26, y: 33.5}
   m_Pivot: {x: 0.21128799, y: 1.4421594}
 --- !u!114 &314698661
@@ -2887,7 +2887,8 @@ MonoBehaviour:
   sellText: {fileID: 858634400}
   currencyText: {fileID: 1893340600}
   speedButtonText: {fileID: 1890963668}
-  currency: 30
+  currency: 60
+  currencyAddFromWave: 20
 --- !u!4 &952151814
 Transform:
   m_ObjectHideFlags: 0
@@ -4345,7 +4346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 5822185837519734625, guid: 1f4c8e14b1959274a9dda8118db381e9, type: 3}
   sprite: {fileID: 21300000, guid: f52866080fb870c4fb94eefe4361b63d, type: 3}
-  price: 8
+  price: 26
   priceTxt: {fileID: 1597004839}
 --- !u!114 &1180911054
 MonoBehaviour:
@@ -6142,7 +6143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 8761436556694925286, guid: 2ca809b05d33d1a4785adb7c7409389d, type: 3}
   sprite: {fileID: 21300000, guid: be63d12321f9bc84eb01c6d1b87cf79d, type: 3}
-  price: 16
+  price: 34
   priceTxt: {fileID: 191681234}
 --- !u!114 &1578305207
 MonoBehaviour:
