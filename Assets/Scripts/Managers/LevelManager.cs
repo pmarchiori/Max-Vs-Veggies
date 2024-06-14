@@ -13,6 +13,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private Transform map; 
     [SerializeField] private GameObject pointAPrefab;
     [SerializeField] private GameObject pointBPrefab;
+    [SerializeField] private string levelTxt;
 
     //spawn / despawn points
     private Point pointASpawn; 
@@ -87,7 +88,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private string[] ReadLevelText()
     {
-        TextAsset bindData = Resources.Load("Level") as TextAsset;
+        TextAsset bindData = Resources.Load(levelTxt) as TextAsset;
 
         string data = bindData.text.Replace(Environment.NewLine, string.Empty);
 

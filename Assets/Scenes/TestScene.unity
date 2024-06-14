@@ -3659,7 +3659,7 @@ MonoBehaviour:
   map: {fileID: 1316052445}
   pointAPrefab: {fileID: 6362411497734840299, guid: fd5b774a6ab764446971fe50d429fd33, type: 3}
   pointBPrefab: {fileID: 4728914103597471474, guid: 554780168400de34c94fd16d60414d85, type: 3}
-  levelTxt: FirstLevel
+  levelTxt: SecondLevel
 --- !u!4 &1099593162
 Transform:
   m_ObjectHideFlags: 0
