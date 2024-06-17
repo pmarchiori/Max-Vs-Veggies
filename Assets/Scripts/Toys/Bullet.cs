@@ -34,5 +34,10 @@ public class Bullet : MonoBehaviour
         other.gameObject.GetComponent<EnemyHealth>().TakeDamage(bulletDamage);
         Destroy(gameObject);
         }
+
+        if(other.collider.CompareTag("LevelCollider"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
