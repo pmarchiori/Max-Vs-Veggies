@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 65209916814390033}
   - component: {fileID: 1001540525811553359}
   - component: {fileID: 4438732290986134483}
-  - component: {fileID: 7338892055158223588}
   - component: {fileID: 4625277848867379739}
+  - component: {fileID: 7502224484635235109}
   m_Layer: 2
   m_Name: Range (2)
   m_TagString: Untagged
@@ -122,25 +122,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
---- !u!114 &7338892055158223588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2237904101718821853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8838fc4ef0585e468b03b8a6b2edcff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  bulletPrefab: {fileID: 0}
-  firingPoint: {fileID: 3918770341603164819}
-  targetingRange: 3
-  bps: 1
 --- !u!114 &4625277848867379739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +134,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c582e5ef575b4ef44b2cd19ce7728e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7502224484635235109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237904101718821853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33078cb19a731964fb5e5493c98ebb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  bulletPrefab: {fileID: 6732147057549381433, guid: 6a115447c3719c94ca89bd04df3fdf7d, type: 3}
+  firingPoint: {fileID: 3918770341603164819}
+  targetingRange: 3
+  bps: 1
 --- !u!1 &4950046393615854229
 GameObject:
   m_ObjectHideFlags: 0
