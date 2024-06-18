@@ -2765,7 +2765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &916051778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2781,10 +2781,10 @@ RectTransform:
   - {fileID: 2131055790}
   m_Father: {fileID: 666709037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39.563004, y: -395.17}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916051779
 MonoBehaviour:
@@ -2892,7 +2892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ac4a1bc68f2834cab2ab11bedf330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 5740845978462796138, guid: 3a067853b58ea3440b04e25a93870515, type: 3}
+  towerPrefab: {fileID: 4950046393615854229, guid: c135555f4e123324ab8212344692d591, type: 3}
   sprite: {fileID: -1766876164, guid: fb635b7c89fbe0c4cba7d933236d3f41, type: 3}
   price: 10
   priceTxt: {fileID: 2131055791}

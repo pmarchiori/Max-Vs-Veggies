@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1001540525811553359}
   - component: {fileID: 4438732290986134483}
   - component: {fileID: 4625277848867379739}
-  - component: {fileID: 7502224484635235109}
+  - component: {fileID: 1182926403528177891}
   m_Layer: 2
   m_Name: Range (2)
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.628, y: -0.609, z: 0}
-  m_LocalScale: {x: 5.5, y: 5.5, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7377915308762143437}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: cd7da40d37291e140a52f4d42e93e7b9, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: dccbf1e242142d244a49243fe953c693, type: 3}
   m_Color: {r: 0.3537736, g: 0.4264104, b: 1, a: 0.25490198}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c582e5ef575b4ef44b2cd19ce7728e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7502224484635235109
+--- !u!114 &1182926403528177891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,16 +143,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2237904101718821853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33078cb19a731964fb5e5493c98ebb93, type: 3}
+  m_Script: {fileID: 11500000, guid: c71aff513813ab046bb6e144f4b5e2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 6732147057549381433, guid: 6a115447c3719c94ca89bd04df3fdf7d, type: 3}
+  bulletPrefab: {fileID: 6732147057549381433, guid: c4602ba225824324dac3fa6686c705dd, type: 3}
   firingPoint: {fileID: 3918770341603164819}
   targetingRange: 3
-  bps: 1
+  bps: 1.3333
 --- !u!1 &4950046393615854229
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 9047391558251265545}
   - component: {fileID: 2270158122283245703}
   m_Layer: 0
-  m_Name: Red-Tower
+  m_Name: Mecha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

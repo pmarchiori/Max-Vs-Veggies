@@ -1,0 +1,5 @@
+Lembrar de trocar os sprites do hover ao posicionar as torres, quando estes estiverem prontos. 
+Colocar pivot point no centro para que a sprite fique onde o mouse realmente esta indo.
+
+
+-Arrumar os tamanhos dos ranges de Hover para corresponder aos tamanhos reais do range das torres.

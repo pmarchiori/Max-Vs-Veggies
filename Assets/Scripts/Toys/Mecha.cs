@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Robot : MonoBehaviour
+public class Mecha : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask enemyMask;
@@ -12,14 +12,9 @@ public class Robot : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 3f;
-    [SerializeField] private float bps; //bullets per second
-    private float timeUntilFire;
-
-    private void Start()
-    {
-        timeUntilFire = 2.99f;
-    }
-
+    [SerializeField] private float bulletsPerSecond = 10f; // bullets per second
+    [SerializeField] private float shootingInterval = 3f; // interval between each shooting burst
+    private bool isShooting = false;
 
     private void Update()
     {
@@ -35,20 +30,33 @@ public class Robot : MonoBehaviour
         }
         else
         {
-            timeUntilFire += Time.deltaTime;
-
-            if(timeUntilFire >= 1f / bps)
+            if (!isShooting)
             {
-                Shoot();
-                timeUntilFire = 0f;
+                StartCoroutine(ShootBullets());
             }
         }
+    }
+
+    private IEnumerator ShootBullets()
+    {
+        isShooting = true;
+        int bulletsToFire = 4;
+        float timeBetweenBullets = 0.1f;
+
+        for (int i = 0; i < bulletsToFire; i++)
+        {
+            Shoot();
+            yield return new WaitForSeconds(timeBetweenBullets);
+        }
+
+        yield return new WaitForSeconds(shootingInterval);
+        isShooting = false;
     }
 
     private void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        RobotBullet bulletScript = bulletObj.GetComponent<RobotBullet>();
+        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
     }
 
@@ -59,7 +67,7 @@ public class Robot : MonoBehaviour
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, Vector2.zero, 0f, enemyMask);
 
         if(hits.Length > 0)
         {
