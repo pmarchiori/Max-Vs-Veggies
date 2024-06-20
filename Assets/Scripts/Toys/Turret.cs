@@ -14,9 +14,9 @@ public class Turret : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 3f;
-    [SerializeField] private float bps = 1f; //bullets per second
+    [SerializeField] private float bps; //bullets per second
     private float timeUntilFire;
-
+    
     private void Update()
     {
         if(target == null)
