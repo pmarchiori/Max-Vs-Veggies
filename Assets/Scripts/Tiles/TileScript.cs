@@ -89,34 +89,13 @@ public class TileScript : MonoBehaviour
     //places a tower on the tile
     private void PlaceTower()
     {
-        // //creates the tower
-        // GameObject turret = (GameObject)Instantiate(GameManager.Instance.ClickedTowerBtn.TowerPrefab, transform.position, Quaternion.identity);
-        // turret.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
-
-        // turret.transform.SetParent(transform); //sets the tower as transform child of the tile
-
-        // this.turret = turret.transform.GetChild(0).GetComponent<Turret>();
-
-        // IsEmpty = false;
-
-        // ColorTile(Color.white); //sets the color back to neutral (white)
-
-        // turret.Price = GameManager.Instance.ClickedTowerBtn.Price;
-
-        // GameManager.Instance.BuyTower();
-
-        // Walkable = false;
-
-
-
-
         // Create the tower      
         GameObject toyObj = (GameObject)Instantiate(GameManager.Instance.ClickedTowerBtn.TowerPrefab, transform.position, Quaternion.identity);
         toyObj.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 
         toyObj.transform.SetParent(transform); // Sets the tower as transform child of the tile
 
-        this.toy = toyObj.GetComponentInChildren<Toys>(); // Get the Turret component from the instantiated GameObject
+        this.toy = toyObj.GetComponentInChildren<Toys>(); // Get the Toy component from the instantiated GameObject
 
         if (this.toy != null)
         {

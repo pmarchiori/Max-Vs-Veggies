@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public delegate void CurrencyChanged();  //delegate for the currency changed event
 
-public class GameManager : Singleton<GameManager> 
+public class GameManager : Singleton<GameManager>
 {
     [Header("References")]
     private Toys selectedTower; //current selected tower
@@ -21,7 +21,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private TextMeshProUGUI currencyText;
     [SerializeField] private TextMeshProUGUI speedButtonText;
     //[SerializeField] private Button changeSpeedButton;
- 
+    [SerializeField] private GameObject soldierUpgradePanel;
+
+    [Header("Tower Upgrades References")]
+    [SerializeField] private GameObject tank;
+
     [Header("Attributes")]
     [SerializeField] private int currency;
     [SerializeField] private int currencyAddFromWave;
@@ -43,18 +47,6 @@ public class GameManager : Singleton<GameManager>
             OnCurrencyChanged();
         }
     }
-
-    //public ObjectPool Pool { get; set; }
-
-    // private void Awake()
-    // {
-    //     Pool = GetComponent<ObjectPool>();
-    // }
-
-    // void Start()
-    // {
-    //     Currency = 10;
-    // }
 
     private void Start()
     {
@@ -79,7 +71,6 @@ public class GameManager : Singleton<GameManager>
             this.ClickedTowerBtn = towerBtn; //stores the clicked button
             Hover.Instance.Activate(towerBtn.Sprite); //activates the hover icon for the tower placement
         }
-        
     }
 
     public void BuyTower()
@@ -130,6 +121,8 @@ public class GameManager : Singleton<GameManager>
         upgradePanel.SetActive(false);
 
         selectedTower = null; //remove the reference to the tower 
+
+        soldierUpgradePanel.SetActive(false);
     }
 
     private void HandleEsc() //handles the escape key
@@ -148,6 +141,14 @@ public class GameManager : Singleton<GameManager>
             {
                 DeselectTower();
             }
+        }
+    }
+
+    public void ShowUpgradeMenu()
+    {
+        if(selectedTower.CompareTag("Soldier"))
+        {
+            soldierUpgradePanel.SetActive(true);
         }
     }
 
@@ -243,32 +244,32 @@ public class GameManager : Singleton<GameManager>
         Hover.Instance.Deactivate(); //deactivates the hover icon instance
     }
 
-    // private void StartWave()
-    // {
-    //     StartCoroutine(SpawnWave());
-    // }
+    //#region TOWER UPGRADES
+    public void SoldierToTank()
+    {
+        if(selectedTower != null && Currency > 20)
+        {
+            Currency -= 20;
+            // Store the current position and rotation of the tower to be replaced
+            Vector3 position = selectedTower.transform.parent.position;
+            Quaternion rotation = selectedTower.transform.parent.rotation;
 
-    // private IEnumerator SpawnWave()
-    // {
-    //     int enemyIndex = Random.Range(0,3);
+            // Instantiate the new prefab at the same position and rotation
+            GameObject newPrefabInstance = Instantiate(tank, position, rotation);
 
-    //     string type = string.Empty;
+            Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
+            if (newToysComponent != null)
+            {
+               newToysComponent.Price = selectedTower.Price; // Copy necessary data
+            }
 
-    //     switch(enemyIndex)
-    //     {
-    //         case 0:
-    //             type = "Mob_01";
-    //             break;
-    //         case 1:
-    //             type = "Mob_02";
-    //             break;
-    //         case 2:
-    //             type = "Mob_03";
-    //             break;
-    //     }
+            // Destroy the current tower and its parent
+            Destroy(selectedTower.transform.parent.gameObject);
 
-    //     Enemy enemy = Pool.GetObject(type).GetComponent<Enemy>(); //requests enemy from the pool
-    //     //enemy.Spawn();
-    //     yield return new WaitForSeconds(2.5f);
-    // }
+            // Deselect the old tower
+            DeselectTower();
+        }
+    }
+
+    //#endregion
 }
