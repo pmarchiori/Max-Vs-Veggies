@@ -26,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Events")]
     public static UnityEvent onEnemyKilled = new UnityEvent();
+    public static UnityEvent onWaveStarted = new UnityEvent();
+    public static UnityEvent onWaveEnded = new UnityEvent();
 
     private float timeSinceLastSpawn;
     private int enemiesAlive;
@@ -93,6 +95,8 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
         eps = EnemiesPerSecond();
+
+        onWaveStarted.Invoke(); 
     }
 
     private void EndWave()
@@ -103,6 +107,8 @@ public class EnemySpawner : MonoBehaviour
         gameManager.OnWaveEnded();
 
         NextWaveButton.SetActive(true);
+
+        onWaveEnded.Invoke(); 
     }
 
     private void SpawnEnemy()

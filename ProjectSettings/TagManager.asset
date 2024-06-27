@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - LevelCollider
   - Soldier
+  - Robot
   layers:
   - Default
   - TransparentFX

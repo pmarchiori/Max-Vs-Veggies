@@ -21,11 +21,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private TextMeshProUGUI currencyText;
     [SerializeField] private TextMeshProUGUI speedButtonText;
     //[SerializeField] private Button changeSpeedButton;
-    [SerializeField] private GameObject soldierUpgradePanel;
 
     [Header("Tower Upgrades References")]
+    [SerializeField] private GameObject soldierUpgradePanel;
+    [SerializeField] private GameObject robotUpgradePanel;
     [SerializeField] private GameObject tank;
     [SerializeField] private GameObject sniper;
+    [SerializeField] private GameObject mecha;
 
     [Header("Attributes")]
     [SerializeField] private int currency;
@@ -124,6 +126,7 @@ public class GameManager : Singleton<GameManager>
         selectedTower = null; //remove the reference to the tower 
 
         soldierUpgradePanel.SetActive(false);
+        robotUpgradePanel.SetActive(false);
     }
 
     private void HandleEsc() //handles the escape key
@@ -150,6 +153,11 @@ public class GameManager : Singleton<GameManager>
         if(selectedTower.CompareTag("Soldier"))
         {
             soldierUpgradePanel.SetActive(true);
+        }
+
+        if(selectedTower.CompareTag("Robot"))
+        {
+            robotUpgradePanel.SetActive(true);
         }
     }
 
@@ -283,6 +291,32 @@ public class GameManager : Singleton<GameManager>
 
             // Instantiate the new prefab at the same position and rotation
             GameObject newPrefabInstance = Instantiate(sniper, position, rotation);
+
+            Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
+            if (newToysComponent != null)
+            {
+               newToysComponent.Price = selectedTower.Price; // Copy necessary data
+            }
+
+            // Destroy the current tower and its parent
+            Destroy(selectedTower.transform.parent.gameObject);
+
+            // Deselect the old tower
+            DeselectTower();
+        }
+    }
+
+    public void RobotToMecha()
+    {
+        if(selectedTower != null && Currency > 20)
+        {
+            Currency -= 20;
+            // Store the current position and rotation of the tower to be replaced
+            Vector3 position = selectedTower.transform.parent.position;
+            Quaternion rotation = selectedTower.transform.parent.rotation;
+
+            // Instantiate the new prefab at the same position and rotation
+            GameObject newPrefabInstance = Instantiate(mecha, position, rotation);
 
             Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
             if (newToysComponent != null)

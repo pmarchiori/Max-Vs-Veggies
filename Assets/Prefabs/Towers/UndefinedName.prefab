@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1001540525811553359}
   - component: {fileID: 4438732290986134483}
   - component: {fileID: 4625277848867379739}
-  - component: {fileID: 7502224484635235109}
+  - component: {fileID: 6076387780734498078}
   m_Layer: 2
   m_Name: Range (2)
-  m_TagString: Robot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c582e5ef575b4ef44b2cd19ce7728e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7502224484635235109
+--- !u!114 &6076387780734498078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,16 +143,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2237904101718821853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33078cb19a731964fb5e5493c98ebb93, type: 3}
+  m_Script: {fileID: 11500000, guid: 3001609578fb6374eb39b5fea9fa8fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  bulletPrefab: {fileID: 6732147057549381433, guid: 6a115447c3719c94ca89bd04df3fdf7d, type: 3}
-  firingPoint: {fileID: 3918770341603164819}
-  targetingRange: 2.5
-  bps: 0.3
+  currencyAddition: 10
+  seconds: 7
 --- !u!1 &4950046393615854229
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,8 +160,8 @@ GameObject:
   - component: {fileID: 9047391558251265545}
   - component: {fileID: 2270158122283245703}
   m_Layer: 0
-  m_Name: Robot
-  m_TagString: Robot
+  m_Name: UndefinedName
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
