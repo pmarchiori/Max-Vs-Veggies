@@ -3382,7 +3382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ac4a1bc68f2834cab2ab11bedf330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 5822185837519734625, guid: b7832f329e8f57e4bb8774a90fb5f60d, type: 3}
+  towerPrefab: {fileID: 5822185837519734625, guid: c040b01e1cfac8146a36eda10a656c92, type: 3}
   sprite: {fileID: -1766876164, guid: fb635b7c89fbe0c4cba7d933236d3f41, type: 3}
   price: 10
   priceTxt: {fileID: 2131055791}
@@ -3456,6 +3456,7 @@ MonoBehaviour:
   speedButtonText: {fileID: 1890963668}
   soldierUpgradePanel: {fileID: 1583123001}
   tank: {fileID: 5822185837519734625, guid: b7832f329e8f57e4bb8774a90fb5f60d, type: 3}
+  sniper: {fileID: 5822185837519734625, guid: c040b01e1cfac8146a36eda10a656c92, type: 3}
   currency: 60
   currencyAddFromWave: 20
 --- !u!4 &952151814
@@ -9877,7 +9878,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2139675302}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 952151813}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SoldierToSniper
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2139675302
 MonoBehaviour:
   m_ObjectHideFlags: 0
