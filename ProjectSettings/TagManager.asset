@@ -9,6 +9,7 @@ TagManager:
   - LevelCollider
   - Soldier
   - Robot
+  - Warrior
   layers:
   - Default
   - TransparentFX

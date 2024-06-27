@@ -23,8 +23,6 @@ public class LevelManager : Singleton<LevelManager>
 
     private Point mapSize;
 
-    //private Stack<Node> finalPath;
-
     public Dictionary<Point, TileScript> Tiles { get; set; } //dictionary that contains all tiles
 
     public float TileSize //property for returning the size of a tile
@@ -95,24 +93,8 @@ public class LevelManager : Singleton<LevelManager>
         return data.Split('-');
     }
 
-    // private void SpawnPoints()
-    // {
-    //     pointASpawn = new Point(0,0);
-    //     GameObject tmp =  (GameObject)Instantiate(pointAPrefab, Tiles[pointASpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
-    //     PointA = tmp.GetComponent<Spawn>();
-    //     PointA.name = "PointA";
-
-    //     pointBSpawn = new Point(11,6);
-    //     Instantiate(pointBPrefab, Tiles[pointBSpawn].GetComponent<TileScript>().WorldPosition, quaternion.identity);
-    // }
-
     public bool Inbounds(Point position)
     {
         return position.X >= 0 && position.Y >= 0 && position.X < mapSize.X && position.Y < mapSize.Y;
     }
-
-    // public void GeneratePath()
-    // {
-    //     finalPath = AStar.GetPath(pointASpawn, pointBSpawn);
-    // }
 }
