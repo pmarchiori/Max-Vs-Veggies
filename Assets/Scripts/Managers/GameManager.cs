@@ -245,7 +245,7 @@ public class GameManager : Singleton<GameManager>
         Hover.Instance.Deactivate(); //deactivates the hover icon instance
     }
 
-    //#region TOWER UPGRADES
+    #region TOWER UPGRADES
     public void SoldierToTank()
     {
         if(selectedTower != null && Currency > 20)
@@ -298,5 +298,5 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    //#endregion
+    #endregion
 }
