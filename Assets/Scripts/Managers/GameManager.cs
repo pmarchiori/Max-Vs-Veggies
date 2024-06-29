@@ -277,10 +277,10 @@ public class GameManager : Singleton<GameManager>
             GameObject newPrefabInstance = Instantiate(tank, position, rotation);
 
             Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
-            if (newToysComponent != null)
-            {
-               newToysComponent.Price = selectedTower.Price; // Copy necessary data
-            }
+            // if (newToysComponent != null)
+            // {
+            //    newToysComponent.Price = selectedTower.Price; // Copy necessary data
+            // }
 
             // Destroy the current tower and its parent
             Destroy(selectedTower.transform.parent.gameObject);
@@ -303,10 +303,10 @@ public class GameManager : Singleton<GameManager>
             GameObject newPrefabInstance = Instantiate(sniper, position, rotation);
 
             Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
-            if (newToysComponent != null)
-            {
-               newToysComponent.Price = selectedTower.Price; // Copy necessary data
-            }
+            // if (newToysComponent != null)
+            // {
+            //    newToysComponent.Price = selectedTower.Price; // Copy necessary data
+            // }
 
             // Destroy the current tower and its parent
             Destroy(selectedTower.transform.parent.gameObject);
@@ -329,10 +329,10 @@ public class GameManager : Singleton<GameManager>
             GameObject newPrefabInstance = Instantiate(mecha, position, rotation);
 
             Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
-            if (newToysComponent != null)
-            {
-               newToysComponent.Price = selectedTower.Price; // Copy necessary data
-            }
+            // if (newToysComponent != null)
+            // {
+            //    newToysComponent.Price = selectedTower.Price; // Copy necessary data
+            // }
 
             // Destroy the current tower and its parent
             Destroy(selectedTower.transform.parent.gameObject);
@@ -355,10 +355,10 @@ public class GameManager : Singleton<GameManager>
             GameObject newPrefabInstance = Instantiate(fiMaker, position, rotation);
 
             Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
-            if (newToysComponent != null)
-            {
-               newToysComponent.Price = selectedTower.Price; // Copy necessary data
-            }
+            // if (newToysComponent != null)
+            // {
+            //    newToysComponent.Price = selectedTower.Price; // Copy necessary data
+            // }
 
             // Destroy the current tower and its parent
             Destroy(selectedTower.transform.parent.gameObject);
