@@ -3974,7 +3974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ac4a1bc68f2834cab2ab11bedf330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 4950046393615854229, guid: bf95bce1f48af664eb2fb4b3b5967cf8, type: 3}
+  towerPrefab: {fileID: 8761436556694925286, guid: 577b5b346ac794a4685b64e18f33f26a, type: 3}
   sprite: {fileID: -1766876164, guid: fb635b7c89fbe0c4cba7d933236d3f41, type: 3}
   price: 10
   priceTxt: {fileID: 2131055791}
