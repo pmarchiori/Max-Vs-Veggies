@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1714968951752753370}
   - component: {fileID: 9150515085984634359}
   - component: {fileID: 6337097893979111687}
-  - component: {fileID: 5009123214760715381}
+  - component: {fileID: 8040403788656247010}
   m_Layer: 2
   m_Name: Range (1)
   m_TagString: Warrior
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.64, y: -0.609, z: 0}
-  m_LocalScale: {x: 3.82, y: 3.82, z: 0.6945455}
+  m_LocalScale: {x: 3.99, y: 3.99, z: 0.72545457}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6699419322769354848}
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c582e5ef575b4ef44b2cd19ce7728e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5009123214760715381
+--- !u!114 &8040403788656247010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,16 +144,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2249839349121578083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602d84450b64a3e48b8c02900a4fdc82, type: 3}
+  m_Script: {fileID: 11500000, guid: 3237efe043aa9e943976a1fc78a8332c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  attackEffectPrefab: {fileID: 1797980048446813275, guid: 22e1c366ff276b048bb3c6d67a6781c5, type: 3}
-  targetingRange: 1.9
-  aps: 0.3
-  damage: 2
+  attackEffectPrefab: {fileID: 1797980048446813275, guid: 2a3bee7a02a9dd84998562dc1abf7b72, type: 3}
+  targetingRange: 2
+  attackRange: 1
+  aps: 0.5
+  damage: 5
 --- !u!1 &3337011172289010336
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ GameObject:
   - component: {fileID: 4240934367741565172}
   - component: {fileID: 7922090960925376499}
   m_Layer: 0
-  m_Name: Warrior
+  m_Name: Samurai
   m_TagString: Warrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
