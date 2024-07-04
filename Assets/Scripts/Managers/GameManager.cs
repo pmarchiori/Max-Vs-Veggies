@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject sniper;
     [SerializeField] private GameObject mecha;
     [SerializeField] private GameObject fiMaker;
+    [SerializeField] private GameObject ninja;
 
     [Header("Attributes")]
     [SerializeField] private int currency;
@@ -197,6 +198,11 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(0);
     }
 
+    public void Continue()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void OnCurrencyChanged()
     {
         if(Changed != null)
@@ -353,6 +359,32 @@ public class GameManager : Singleton<GameManager>
 
             // Instantiate the new prefab at the same position and rotation
             GameObject newPrefabInstance = Instantiate(fiMaker, position, rotation);
+
+            Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
+            // if (newToysComponent != null)
+            // {
+            //    newToysComponent.Price = selectedTower.Price; // Copy necessary data
+            // }
+
+            // Destroy the current tower and its parent
+            Destroy(selectedTower.transform.parent.gameObject);
+
+            // Deselect the old tower
+            DeselectTower();
+        }
+    }
+
+    public void WarriorToNinja()
+    {
+        if(selectedTower != null && Currency > 20)
+        {
+            Currency -= 20;
+            // Store the current position and rotation of the tower to be replaced
+            Vector3 position = selectedTower.transform.parent.position;
+            Quaternion rotation = selectedTower.transform.parent.rotation;
+
+            // Instantiate the new prefab at the same position and rotation
+            GameObject newPrefabInstance = Instantiate(ninja, position, rotation);
 
             Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
             // if (newToysComponent != null)
