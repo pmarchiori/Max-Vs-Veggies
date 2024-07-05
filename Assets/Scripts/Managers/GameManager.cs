@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject mecha;
     [SerializeField] private GameObject fiMaker;
     [SerializeField] private GameObject ninja;
-    [SerializeField] private GameObject samurai;
+    [SerializeField] private GameObject cyborg;
 
     [Header("Attributes")]
     [SerializeField] private int currency;
@@ -77,6 +77,7 @@ public class GameManager : Singleton<GameManager>
         {
             this.ClickedTowerBtn = towerBtn; //stores the clicked button
             Hover.Instance.Activate(towerBtn.Sprite); //activates the hover icon for the tower placement
+            //Hover.Instance.Activate(towerBtn.RangeSprite); //activates the hover icon for the tower placement
         }
     }
 
@@ -113,7 +114,7 @@ public class GameManager : Singleton<GameManager>
         selectedTower = toys; 
         selectedTower.Select();
 
-        sellText.text = "Sell for: " + (selectedTower.Price / 2).ToString();
+        sellText.text = "Vender por: " + (selectedTower.Price / 2).ToString();
 
         upgradePanel.SetActive(true);
     }
@@ -199,9 +200,9 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(0);
     }
 
-    public void Continue()
+    public void Continue(string lvlName)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(lvlName);
     }
 
     public void OnCurrencyChanged()
@@ -283,7 +284,7 @@ public class GameManager : Singleton<GameManager>
             // Instantiate the new prefab at the same position and rotation
             GameObject newPrefabInstance = Instantiate(tank, position, rotation);
 
-            Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
+            //Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
             // if (newToysComponent != null)
             // {
             //    newToysComponent.Price = selectedTower.Price; // Copy necessary data
@@ -401,7 +402,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void WarriorToSamurai()
+    public void WarriorToCyborg()
     {
         if(selectedTower != null && Currency > 20)
         {
@@ -411,7 +412,7 @@ public class GameManager : Singleton<GameManager>
             Quaternion rotation = selectedTower.transform.parent.rotation;
 
             // Instantiate the new prefab at the same position and rotation
-            GameObject newPrefabInstance = Instantiate(samurai, position, rotation);
+            GameObject newPrefabInstance = Instantiate(cyborg, position, rotation);
 
             Toys newToysComponent = newPrefabInstance.GetComponentInChildren<Toys>();
             // if (newToysComponent != null)

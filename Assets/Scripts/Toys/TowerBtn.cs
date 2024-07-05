@@ -9,6 +9,7 @@ public class TowerBtn : MonoBehaviour
     [SerializeField] private GameObject towerPrefab; //the prefab that this button will spawn
 
     [SerializeField] private Sprite sprite; //the tower's sprite
+    [SerializeField] private Sprite rangeSprite; //the tower's range sprite
 
     [SerializeField] private int price;
 
@@ -29,6 +30,13 @@ public class TowerBtn : MonoBehaviour
         get
         {
             return sprite;
+        }
+    }
+
+    public Sprite RangeSprite
+    {
+        get{
+            return rangeSprite;
         }
     }
 

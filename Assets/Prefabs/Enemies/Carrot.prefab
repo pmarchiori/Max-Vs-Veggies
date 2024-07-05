@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4199747412760729489}
   enemySpawner: {fileID: 0}
-  moveSpeed: 2.25
+  moveSpeed: 2.75
   IsActive: 1
 --- !u!114 &6612733314186804410
 MonoBehaviour:

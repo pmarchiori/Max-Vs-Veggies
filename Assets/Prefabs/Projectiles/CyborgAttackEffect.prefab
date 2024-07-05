@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7529534110416158105}
   - component: {fileID: 8874471708711668648}
   m_Layer: 0
-  m_Name: SamuraiAttackEffect
+  m_Name: CyborgAttackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
