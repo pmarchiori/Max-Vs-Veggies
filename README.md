@@ -18,4 +18,4 @@ Ao fazer cara feia, sua mãe tem uma ideia. E se ela incluir os vegetais nas bri
 A mãe diz a Max: “Que tal uma batalha? Os meus vegetais contra os seus brinquedos. Se eu vencer, você terá que comer todos os vegetais que eu fizer. Se você vencer, pode comer todos os doces que você quiser hoje!” 
 Sem pensar duas vezes, Max aceita o desafio. 
 
-[Link para download do jogo]([url](https://pmarchiori.itch.io/max-vs-veggies))
+[https://pmarchiori.itch.io/max-vs-veggies](Link para download do jogo)
